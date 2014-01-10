@@ -4,6 +4,7 @@
 
 \ProvidesPackage{beamerthemeJLBasic}
 
+\makeatletter
 \newif\ifbeamer@tree@showhooks
 \beamer@tree@showhookstrue
 
@@ -22,20 +23,29 @@
 \mode
 <all>
 
+\definecolor{JLBasic@red}{RGB}{181,55,50}
+\definecolor{JLBasic@green}{RGB}{43,158,22}
+\setbeamertemplate{items}[triangle]
+\setbeamertemplate{enumerate items}[default]
+
 \defbeamertemplate*{footline}{JLBasic theme}
 {
   \begin{beamercolorbox}[colsep=0.5pt]{upper separation line foot}
   \end{beamercolorbox}
+  \leavevmode%
   \hbox{%
-    \begin{beamercolorbox}[wd=.5\paperwidth,ht=3ex,dp=1ex,left]{title in head/foot}%
-      \usebeamerfont{title in head/foot}\hspace*{2ex}\insertshortauthor %
-      \if\beamer@shortinstitute\empty\else\hspace*{1ex}\insertshortinstitute\fi%
-      \hspace*{2ex} \if\beamer@shortdate\empty\insertdate\else\insertshortdate\fi%
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.5\paperwidth,ht=3ex,dp=1ex,right]{date in head/foot}%
-      \usebeamerfont{date in head/foot}
-      \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
-    \end{beamercolorbox}}%
+  \begin{beamercolorbox}[wd=0.7\paperwidth,ht=2.25ex,dp=1ex,left]{author in head/foot}%
+    \usebeamerfont{author in head/foot}
+    \hspace*{1ex}\if\beamer@shortauthor\empty\insertauthor\else\insertshortauthor\fi%
+    \if\beamer@shortinstitute\empty\else\hspace*{1ex}\insertshortinstitute\fi%
+    \usebeamerfont{date in head/foot}\hspace*{2ex}%
+    \if\beamer@shortdate\empty\insertdate\else\insertshortdate\fi%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=0.3\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}%
+    \hfill\insertframenumber{} / \inserttotalframenumber\hspace*{1em}%
+  \end{beamercolorbox}}%
+  \vskip0em%
 }
 
 
@@ -67,10 +77,20 @@
 }
 \mode <all>
 %%\setbeamercolor{separation line}{use=structure,bg=structure.fg!50!bg}
-\setbeamercolor{separation line}{use=structure,bg=black}
-\setbeamercolor{frametitle}{fg=black}
+\mode <presentation>
+\setbeamercolor{separation line}{use=structure,bg=structure.fg}
+\setbeamercolor{frametitle}{use=structure}
+\setbeamercolor{block title}{use=structure,fg=structure.fg}
+\setbeamercolor{title in head/foot}{use=structure,fg=structure.fg}
+\setbeamercolor{itemize subitem}{use=structure,fg=JLBasic@green}
+\setbeamercolor{itemize item}{use=structure,fg=JLBasic@red}
+\setbeamercolor{enumerate item}{use=structure,fg=JLBasic@red}
+\setbeamercolor{subsection in toc}{use=structure,fg=structure.fg}
 \mode <handout>
+\setbeamercolor{separation line}{use=structure,bg=black}
 \setbeamercolor{block title}{use=structure,fg=black,bg=white}
 \setbeamercolor{block body}{parent=normal text,use=block title,bg=white}
+\setbeamercolor{title in head/foot}{use=structure,fg=black}
 \mode
 <all>
+\makeatother

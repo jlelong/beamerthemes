@@ -1,5 +1,5 @@
 % Written and (C) by Jérôme Lelong <jerome.lelong@gmail.com>
-% 2008 - 2014
+% 2008 - 2018
 
 % This program is free software; you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -42,7 +42,7 @@
   \hbox{%
     \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{title in head/foot}%
       \usebeamerfont{title in head/foot}\hspace*{2ex}\insertshortauthor %
-      \if\beamer@shortinstitute\empty\else\hspace*{1ex}\insertshortinstitute\fi%
+      \if\beamer@shortinstitute\empty\else\hspace*{1ex}(\insertshortinstitute)\fi%
       \hspace*{2ex} \if\beamer@shortdate\empty\insertdate\else\insertshortdate\fi%
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%

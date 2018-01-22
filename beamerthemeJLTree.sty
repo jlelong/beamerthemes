@@ -26,7 +26,6 @@
 \mode
 <presentation>
 
-\setbeamertemplate{navigation symbols}{}
 \usecolortheme{rose}
 \mode
 <presentation>
@@ -34,6 +33,9 @@
 
 \mode
 <all>
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{page number in head/foot}[totalframenumber]%
+
 
 \defbeamertemplate*{footline}{JLTree theme}
 {
@@ -46,9 +48,10 @@
       \usebeamerfont{date in head/foot}\hspace*{2ex}%
       \hspace*{2ex} \if\beamer@shortdate\empty\insertdate\else\insertshortdate\fi%
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
-      \usebeamerfont{date in head/foot}
-      \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{page number in head/foot}%
+      \usebeamercolor[fg]{page number in head/foot}
+      \usebeamerfont{page number in head/foot}
+      \usebeamertemplate*{page number in head/foot}\hspace*{2ex}%
     \end{beamercolorbox}}%
 }
 
@@ -130,6 +133,7 @@
 }
 \mode <presentation>
 \setbeamercolor{separation line}{use=structure,bg=structure.fg!50!bg}
+\setbeamercolor{page number in head/foot}{use=structure,fg=structure.fg}
 \mode <handout>
 \setbeamercolor{separation line}{use=structure,bg=black}
 \setbeamercolor{block title}{use=structure,fg=black,bg=white}

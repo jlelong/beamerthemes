@@ -41,6 +41,8 @@
 \definecolor{JLBasic@green}{RGB}{43,158,22}
 \setbeamertemplate{items}[triangle]
 \setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{page number in head/foot}[totalframenumber]%
+\setbeamercolor{page number in head/foot}{use=structure,fg=structure.fg}
 
 \defbeamertemplate*{footline}{JLBasic theme}
 {
@@ -55,9 +57,10 @@
     \usebeamerfont{date in head/foot}\hspace*{2ex}%
     \if\beamer@shortdate\empty\insertdate\else\insertshortdate\fi%
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=0.3\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
-    \usebeamerfont{date in head/foot}%
-    \hfill\insertframenumber{} / \inserttotalframenumber\hspace*{1em}%
+  \begin{beamercolorbox}[wd=0.3\paperwidth,ht=2.25ex,dp=1ex,right]{page number in head/foot}%
+      \usebeamercolor[fg]{page number in head/foot}
+      \usebeamerfont{page number in head/foot}
+      \usebeamertemplate*{page number in head/foot}\hspace*{2ex}%
   \end{beamercolorbox}}%
   \vskip0em%
 }
